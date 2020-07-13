@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title>GBI <?php echo $page_title; ?></title>
+    <title>GBI <?php echo htmlspecialchars($page_title); ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo url_for('/stylesheets/staff.css'); ?>" media="all">
 </head>
