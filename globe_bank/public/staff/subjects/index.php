@@ -2,13 +2,14 @@
 
 <?php 
 
-    // Array containing Arrays inside and is assigned into a variable called $subjects
-    $subjects = [
-        ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
-        ['id' => '2', 'position' => '2', 'visible' => '1', 'menu_name' => 'Consumer'],
-        ['id' => '3', 'position' => '3', 'visible' => '1', 'menu_name' => 'Small Business'],
-        ['id' => '4', 'position' => '4', 'visible' => '1', 'menu_name' => 'Commercial'],
-    ]
+    //  this is a query string which is passed into a variable $subject_query
+    $subject_query = "SELECT * FROM subjects ORDER BY position ASC";
+
+    // getting the  RESULT SET from the executed query STRING
+    $subject_result_set = mysqli_query($db, $subject_query);
+
+    // checking result set available or not using the function you created in the database.php file
+    confirm_result_set($subject_result_set,$subject_query);
 
 ?>
 
@@ -35,8 +36,9 @@
                 <th>&nbsp;</th>
             </tr>
 
-            <!-- The code below is looping through the array called $subjects and creating a row for it -->
-            <?php foreach ($subjects as $element) {?>
+            <!-- The code below is looping through the subject called $subject_result_set and creating a row for it -->
+
+            <?php while($element = mysqli_fetch_assoc($subject_result_set)) { ?>
 
             <tr>
                 <td> <?php echo $element['id']; ?></td>
@@ -57,6 +59,11 @@
 
             <?php } ?>
         </table>
+
+        <?php
+            // EMPTYING THE subject_result_set BECAUSE WE NO LONGER NEED THAT QUERY RESULT
+            mysqli_free_result($subject_result_set);
+        ?>
 
     </div>
 </div>

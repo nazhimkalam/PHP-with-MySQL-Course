@@ -6,12 +6,14 @@ html {
 body {
 	height: 980px;
 	width: 100%;
-	margin: 0;
+	position: relative;
+	left: 50px;
+	margin: 0 auto;
 	padding: 0;
 }
 
 header {
-	width: 980px;
+	width: 100%;
 	height: 40px;
 	margin: 0 0 10px 0;
 	padding: 0;
@@ -28,14 +30,14 @@ header h1 {
 }
 
 navigation {
-	width: 980px;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
 
 navigation ul {
-	width: 980px;
+	width: 100%;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -53,7 +55,7 @@ navigation ul li {
 }
 
 footer {
-	width: 940px;
+	width: 100%;
 	height: 20px;
 	margin: 0 0 10px 0;
 	padding: 10px 20px;
