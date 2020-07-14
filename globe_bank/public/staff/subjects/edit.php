@@ -8,20 +8,20 @@ if(!isset($_GET['id'])) {
 }
 
 // variable 
-$id = $_GET['id'];
+$id = $_GET['id'];  // gets the id value and stores it into a variable
 $menu_name = '';
 $position = '';
 $visible = '';
 
 if(is_post_request()) { //checks if it is a POST request
 
-  // Handle form values sent by new.php
+  // the code below in this block runs when the submit button ("Edit Subject") is clicked
 
   $menu_name = $_POST['menu_name'] ?? '';
   $position = $_POST['position'] ?? '';
   $visible = $_POST['visible'] ?? '';
 
-  echo "Form parameters<br />";
+  echo "Form parameters:<br />";
   echo "Menu name: " . $menu_name . "<br />";
   echo "Position: " . $position . "<br />";
   echo "Visible: " . $visible . "<br />";
