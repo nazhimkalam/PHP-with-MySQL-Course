@@ -5,3 +5,15 @@
     define("DB_PASSWORD", "");          // default password of the database is ""
     define("DB_NAME", "globe_bank");
 ?>
+
+
+
+<!-- ------------------------------------------------
+IMPORTANT NOTE FOR PHP-DATABASE INTERACTION
+
+1. CREATE A DATABASE CONNECTION
+2. PERFORM A DATABASE QUERY
+3. USE RETURNED DATA IF AVAILABLE
+4. RELEASE RETURNED DATA
+5. CLOSE THE DATABASE CONNECTION 
+------------------------------------------------ -->
