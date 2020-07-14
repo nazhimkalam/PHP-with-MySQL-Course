@@ -15,8 +15,14 @@
     $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
     define("WWW_ROOT", $doc_root);
 
-    require_once('functions.php')    
+    require_once('functions.php');
     // calls the functions.php file which is available with in the same folder, 
     // therefore the functions can be used within the php file when created.
+
+    // we call the database.php file
+    require_once('database.php');
+
+    // we will be using the variable $db to work with queries (remember it returns the $connection to work with)
+    $db = db_connect();
 
 ?>
