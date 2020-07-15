@@ -8,5 +8,9 @@
 ### 5. Use PHP to access MYSQL
 ### 6. CRUD operations with PHP
  
+## NOTE : Since I am using the xxamp server, I have to place this folder inside the xxamp folder in Local Disk C within the htdocs folder, so then the localhost will work!!!
+
+### Path to place the entire folder location:
+### **C:\xampp\htdocs\PHP-with-MySQL-Course**
 
  
