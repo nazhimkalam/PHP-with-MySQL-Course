@@ -7,8 +7,6 @@
 ### 4. MYSQL Basics
 ### 5. Use PHP to access MYSQL
 ### 6. CRUD operations with PHP
-### 7. Validating Data with PHP
-### 8. Prevent SQL injection
  
 
  
