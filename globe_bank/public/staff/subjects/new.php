@@ -1,6 +1,7 @@
 <?php 
     require_once('../../../private/initialize.php');
 
+    // this is to deal with errors
     $test = $_GET['test'] ?? '';
     
     if($test == '404'){
@@ -10,6 +11,14 @@
     }else if($test == 'redirect'){
         redirect_to(url_for('/staff/subjects/index.php'));
     }
+
+    // setting the subject count
+    $subjects_set = find_all_subjects(); // loading all the available subjects in to an array
+    $subject_count  = mysqli_num_rows($subjects_set) + 1; 
+    mysqli_free_result($subjects_set);
+
+    $subject_data =[];
+    $subject_data['position'] = $subject_count;
 ?>
 
 <?php $page_title = 'Create Subject'; ?>
@@ -30,8 +39,16 @@
             <dl>
                 <dt>Position</dt>
                 <dd>
-                    <select name="position">
-                        <option value="1">1</option>
+                <select name="position">
+                        <?php
+                          for($i=1; $i <= $subject_count; $i++) {
+                            echo "<option value=\"{$i}\"";
+                            if($subject_data["position"] == $i) {
+                              echo " selected";
+                            }
+                            echo ">{$i}</option>";
+                          }
+                        ?>
                     </select>
                 </dd>
             </dl>

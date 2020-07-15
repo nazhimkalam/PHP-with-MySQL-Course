@@ -4,6 +4,9 @@
 
 <?php 
     $id = $_GET['id'] ?? 'no_id'; // ?? means if then condition, means if value is available execute LHS or RHS
+
+    // FINDING THE QUERY AND RETURNING THE RESULT
+    $subject_data = find_subjects_by_id($id);
 ?>
 
 <?php 
@@ -29,10 +32,26 @@
     </a>
 
     <div class="subject show">
-        <br />
-        Subject ID: <?php echo htmlspecialchars($id); ?>
-        <br />
-        Menu Name: <?php echo htmlspecialchars($menu_name) ?>
+        <h1>Subject: <?php echo htmlspecialchars($subject_data['menu_name']) ?></h1>
+
+        <div class="attributes">
+            <dl>
+                <dt>Menu Name : </dt>
+                <dd><?php echo htmlspecialchars($subject_data['menu_name']); ?></dd>
+            </dl>
+
+            <dl>
+                <dt>Position : </dt>
+                <dd><?php echo htmlspecialchars($subject_data['position']); ?></dd>
+            </dl>
+
+            <dl>
+                <dt>Visible : </dt>
+                <dd><?php echo $subject_data['visible'] == '1' ? 'true' : 'false'; ?></dd>
+            </dl>
+
+        </div>
+
     </div>
     <br />
 

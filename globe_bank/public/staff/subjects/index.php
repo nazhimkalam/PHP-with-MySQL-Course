@@ -1,16 +1,8 @@
 <?php require_once('../../../private/initialize.php')?>
 
 <?php 
-
-    //  this is a query string which is passed into a variable $subject_query
-    $subject_query = "SELECT * FROM subjects ORDER BY position ASC";
-
-    // getting the  RESULT SET from the executed query STRING
-    $subject_result_set = mysqli_query($db, $subject_query);
-
-    // checking result set available or not using the function you created in the database.php file
-    confirm_result_set($subject_result_set,$subject_query);
-
+    // SELECTING ALL THE DATA IN THE DATABASE ON THE subjects TABLE
+    $subject_result_set = find_all_subjects();
 ?>
 
 <?php $page_title = 'Subjects'; ?>
@@ -54,7 +46,9 @@
                 <td> <a class="action"
                         href="<?php echo url_for('/staff/subjects/edit.php?id='.htmlspecialchars(urldecode($element['id']))); ?>">
                         Edit </a> </td>
-                <td> <a class="action" href=""> Delete </a> </td>
+                <td> <a class="action"
+                        href="<?php echo url_for('/staff/subjects/delete.php?id='.htmlspecialchars(urlencode($element['id']))) ?>">
+                        Delete </a> </td>
             </tr>
 
             <?php } ?>
